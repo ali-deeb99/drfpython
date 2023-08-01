@@ -194,6 +194,5 @@ class Obada(models.Model):
 
 
 
-class Hussein(models.Model):
-    x=models.CharField(max_length=200)
-    
+
+

@@ -8,6 +8,10 @@ from rest_framework import status
 from .models import Obada
 from django.core.mail import send_mail
 from django.conf import settings
+import hmac
+import hashlib
+import subprocess
+from django.http import HttpResponseBadRequest, HttpResponse
 # Create your views here.
 
 
@@ -48,3 +52,23 @@ def index(request):
         fail_silently=False
     )
     return Response('OK')
+
+api_view()
+def husseinHosting(request):
+    return Response('hahahaha')
+
+
+def github_webhook(request):
+    # Verify the signature of the webhook
+    secret = b"your-webhook-secret"
+    signature = request.headers.get("X-Hub-Signature").replace("sha1=", "").encode()
+    body = request.body
+    mac = hmac.new(secret, msg=body, digestmod=hashlib.sha1)
+    if not hmac.compare_digest(mac.hexdigest(), signature):
+        return HttpResponseBadRequest("Invalid signature")
+
+    # Execute the deployment script
+    subprocess.run(["/home/alideeb99r/script.sh"])
+
+    # Return a success response
+    return HttpResponse("OK")

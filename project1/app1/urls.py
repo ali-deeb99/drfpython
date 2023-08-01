@@ -8,6 +8,10 @@ urlpatterns = [
     path('f',views.f),
     path('entity-registration',views.RegistrationEntity.as_view()),
     path('send-email',views.index),
+    path('github-webhook/', views.github_webhook),
+    path('husseinHosting',views.husseinHosting),
+
 ]
+
 
 
