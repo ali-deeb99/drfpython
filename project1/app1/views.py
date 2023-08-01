@@ -55,7 +55,7 @@ def index(request):
 
 api_view()
 def husseinHosting(request):
-    return Response('hahahaha')
+    return Response('hhhhhhhhhh')
 
 
 def github_webhook(request):
