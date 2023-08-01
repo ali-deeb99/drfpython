@@ -191,3 +191,9 @@ class Blog(models.Model):
 
 class Obada(models.Model):
     name=models.CharField(max_length=255)
+
+
+
+class Hussein(models.Model):
+    x=models.CharField(max_length=200)
+    
